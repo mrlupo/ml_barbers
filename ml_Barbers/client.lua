@@ -68,6 +68,7 @@ Citizen.CreateThread(function()
 
     WarMenu.CreateSubMenu('HairMenu', 'BarberMenu', ' ')
     WarMenu.CreateSubMenu('BeardMenu', 'BarberMenu', ' ')
+	WarMenu.CreateSubMenu('fHairMenu', 'BarberMenu', ' ')
 
     while true do
         Citizen.Wait(0)
@@ -166,6 +167,30 @@ Citizen.CreateThread(function()
           if IsControlJustPressed(0, 0xCEFD9220) then
 				TaskStartScenarioAtPosition(GetPlayerPed(), GetHashKey("PROP_PLAYER_BARBER_SEAT"), -306.62, 813.56, 118.75, 90.60, 0, 0, 1)
 				WarMenu.OpenMenu('BarberMenu')
+          end
+        end
+		
+		if IsPlayerNearCoords(2655.05, -1179.92, 53.28) then
+           TriggerEvent('redem_roleplay:Tip', "Press ~INPUT_ENTER~ to open the barber shop.", 100)--Middle Seat
+          if IsControlJustPressed(0, 0xCEFD9220) then
+                TaskStartScenarioAtPosition(GetPlayerPed(), GetHashKey("PROP_PLAYER_BARBER_SEAT"), 2655.38, -1180.92, 53.00, 182.8, 0, 0, 1)
+                WarMenu.OpenMenu('BarberMenu')
+          end
+        end        
+        
+        if IsPlayerNearCoords(2652.90, -1180.27, 53.28) then
+           TriggerEvent('redem_roleplay:Tip', "Press ~INPUT_ENTER~ to open the barber shop.", 100)--Right Seat
+          if IsControlJustPressed(0, 0xCEFD9220) then
+                TaskStartScenarioAtPosition(GetPlayerPed(), GetHashKey("PROP_PLAYER_BARBER_SEAT"), 2653.75, -1180.92, 53.00, 182.8, 0, 0, 1)
+                WarMenu.OpenMenu('BarberMenu')
+          end
+        end    
+
+        if IsPlayerNearCoords(2657.65, -1180.32, 53.28) then
+           TriggerEvent('redem_roleplay:Tip', "Press ~INPUT_ENTER~ to open the barber shop.", 100)--Left Seat
+          if IsControlJustPressed(0, 0xCEFD9220) then
+                TaskStartScenarioAtPosition(GetPlayerPed(), GetHashKey("PROP_PLAYER_BARBER_SEAT"), 2657.00, -1180.92, 53.00, 182.8, 0, 0, 1)
+                WarMenu.OpenMenu('BarberMenu')
           end
         end
 		
