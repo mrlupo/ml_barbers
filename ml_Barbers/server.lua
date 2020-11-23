@@ -14,7 +14,7 @@ AddEventHandler("Barbers:SaveHair", function(index)
 		
         if user.getMoney() >= price then
                 user.removeMoney(price)
-		MySQL.Async.fetchAll("SELECT skin FROM skins WHERE identifier=(@identifier)", {['@identifier'] = identifier}, function(data)
+		MySQL.Async.fetchAll("SELECT skin FROM skins WHERE identifier=(@identifier) AND charid=(@charid)", {['@identifier'] = identifier, ['@charid'] = charid}, function(data)
 			local skin = {}
 
 			print("Barbers: Hair saved in database, " .. tostring(index))
@@ -44,13 +44,13 @@ AddEventHandler("Barbers:SaveBeard", function(index)
         if user.getMoney() >= price then
                 user.removeMoney(price)
 
-		MySQL.Async.fetchAll("SELECT skin FROM skins WHERE identifier=(@identifier)", {['@identifier'] = identifier}, function(data)
+		MySQL.Async.fetchAll("SELECT skin FROM skins WHERE identifier=(@identifier) AND charid=(@charid)", {['@identifier'] = identifier, ['@charid'] = charid}, function(data)
 			local skin = {}
 
 			print("Barbers: Beard saved in database, " .. tostring(index))
 
 			skin = json.decode(data[1].skin)
-			skin['fhair'] = tostring(index)
+			skin['beard'] = tostring(index)
 
 			MySQL.Async.execute("UPDATE skins SET skin=(@skin) WHERE identifier=(@identifier)", {['@identifier'] = identifier, ['@skin'] = json.encode(skin)})
 		end)
