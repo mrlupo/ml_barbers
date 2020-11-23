@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         for i, v in ipairs(FemaleComp) do
             if v.category == "hair" then
-                table.insert(list_hair_f, v.hash)
+                table.insert(list_hair_f, v.Hash)
             end
         end
         adding2 = false
